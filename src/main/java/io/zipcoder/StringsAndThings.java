@@ -25,7 +25,7 @@ public class StringsAndThings {
 
         // Loop through the list and check the end character
         for(String word : words){
-            if(input.charAt(input.length()-1)=='y' || input.charAt(input.length()-1)=='z'){
+            if(input.endsWith("y") || input.endsWith("z")){
                 count++;
             }
         }
@@ -59,6 +59,7 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
+        String a = "abs";
         return null;
     }
 
