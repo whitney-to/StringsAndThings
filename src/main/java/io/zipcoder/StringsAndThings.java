@@ -1,6 +1,8 @@
 package io.zipcoder;
 
 
+import java.util.List;
+
 /**
  * @author tariq
  */
@@ -15,7 +17,19 @@ public class StringsAndThings {
      *           countYZ("day fyyyz"); // Should return 2
      */
     public Integer countYZ(String input){
-        return null;
+        // var to keep track of number of words
+        int count = 0;
+
+        // create a list of all words in string
+        List<String> words = List.of(input.split(" "));
+
+        // Loop through the list and check the end character
+        for(String word : words){
+            if(input.charAt(input.length()-1)=='y' || input.charAt(input.length()-1)=='z'){
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -28,7 +42,12 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        return null;
+        StringBuilder result = new StringBuilder("");
+        if(base.contains(remove)){
+            return  result.append(base.replace(remove,"")).toString();
+        } else {
+            return base;
+        }
     }
 
     /**
@@ -51,7 +70,8 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
+        // matches (any char 0 - any times) (g at least 2 times) (any char 0 - any times)
+        return input.matches("([a-zA-Z])*(g){2,}([a-zA-Z])*");
     }
 
 
