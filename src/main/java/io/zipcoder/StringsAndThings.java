@@ -59,8 +59,12 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        String a = "abs";
-        return null;
+        int countIS = input.split("is").length -1;
+        int countNOT = input.split("not").length -1;
+        if(countIS==countNOT){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -84,6 +88,12 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int count = 0;
+        for(int i = 0; i<input.length()-3;i++){
+            if(input.charAt(i)==input.charAt(i+1) && input.charAt(i+1)==input.charAt(i+2)){
+                count++;
+            }
+        }
+        return count;
     }
 }
