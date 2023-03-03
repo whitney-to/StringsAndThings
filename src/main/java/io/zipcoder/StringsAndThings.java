@@ -42,9 +42,8 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        StringBuilder result = new StringBuilder("");
         if(base.contains(remove)){
-            return  result.append(base.replace(remove,"")).toString();
+            return  base.replace(remove,"");
         } else {
             return base;
         }
@@ -59,8 +58,20 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        int countIS = input.split("is").length -1;
-        int countNOT = input.split("not").length -1;
+        int countIS = 0;
+        int countNOT = 0;
+        for(int i = 0; i<input.length()-1;i++){
+            if(input.charAt(i)=='i' && input.charAt(i+1)=='s'){
+                countIS++;
+            }
+        }
+
+        for(int i = 0; i<input.length()-2;i++){
+            if(input.charAt(i)=='n' && input.charAt(i+1)=='o'&& input.charAt(i+2)=='t'){
+                countNOT++;
+            }
+        }
+
         if(countIS==countNOT){
             return true;
         }
@@ -89,7 +100,7 @@ public class StringsAndThings {
      */
     public Integer countTriple(String input){
         int count = 0;
-        for(int i = 0; i<input.length()-3;i++){
+        for(int i = 0; i<input.length()-2;i++){
             if(input.charAt(i)==input.charAt(i+1) && input.charAt(i+1)==input.charAt(i+2)){
                 count++;
             }
