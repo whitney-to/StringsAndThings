@@ -42,11 +42,7 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        if(base.contains(remove)){
-            return  base.replace(remove,"");
-        } else {
-            return base;
-        }
+        return (base.contains(remove)) ? base.replace(remove,"") : base;
     }
 
     /**
@@ -60,6 +56,7 @@ public class StringsAndThings {
     public Boolean containsEqualNumberOfIsAndNot(String input){
         int countIS = 0;
         int countNOT = 0;
+
         for(int i = 0; i<input.length()-1;i++){
             if(input.charAt(i)=='i' && input.charAt(i+1)=='s'){
                 countIS++;
@@ -71,11 +68,15 @@ public class StringsAndThings {
                 countNOT++;
             }
         }
+        /* Alternative way to count pattern with regex and split() and length()
+            countIS = input.split("is",-1).length;
+            countNOT = input.split("not",-1).length;
 
-        if(countIS==countNOT){
-            return true;
-        }
-        return false;
+           second parameter in split() include "" for same pattern next
+           to each other. example split("not",-2) account for notnot correctly.
+         */
+
+        return countIS==countNOT;
     }
 
     /**
